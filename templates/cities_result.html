@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>MétéoTrip | Villes</title>
+</head>
+<body>
+    <header>
+        MétéoTrip
+    </header>
+    <div class="container">
+        <h1> Meilleure ville : <br> {{first}} <br> 🌡️: {{fi_temp}}  💦: {{fi_humi}}  💨:{{fi_wind}}  🌧️:{{fi_prec}} </h1>
+        <ul>
+            <li>2e : {{second}} <br> 🌡️: {{s_temp}}  💦: {{s_humi}}  💨:{{s_wind}}  🌧️:{{s_prec}}</li>
+            <li>3e : {{third}} <br> 🌡️: {{t_temp}}  💦: {{t_humi}}  💨:{{t_wind}}  🌧️:{{t_prec}}</li>
+            <li>4e : {{fourth}} <br> 🌡️: {{fo_temp}}  💦: {{fo_humi}}  💨:{{fo_wind}}  🌧️:{{fo_prec}}</li>
+        </ul>
+        <a id="return-button" href="http://localhost:5000/">Retour à l'accueil</a>
+    </div>
+</body>
+</html>

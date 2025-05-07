@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>MétéoTrip | Villes</title>
+</head>
+<body>
+    <header>
+        MétéoTrip
+    </header>
+    <div class="container">
+        <input type="text" id="city-input" placeholder="Entrez une ville (Minimum 4)">
+        <button id="add-city">Add City</button>
+        <ul id="city-list">
+
+        </ul>
+        <script>
+            document.getElementById("add-city").addEventListener("click", async () => {
+                let cityInput = document.getElementById("city-input");
+                let city = cityInput.value.trim();
+                if (!city) {
+                    alert("Veuillez entrer une ville !");
+                    return;
+                }
+
+                // Ajout à la liste HTML
+                let cityList = document.getElementById("city-list");
+                if (cityList) {
+                    let li = document.createElement("li");
+                    li.textContent = city;
+                    cityList.appendChild(li);
+                } else {
+                    console.error("L'élément parent n'existe pas !");
+                }
+
+                console.log(city)
+
+                // Enregistrement dans le fichier JSON via Flask
+                try {
+                    const response = await fetch("/add_city", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ ville: city }),
+                    });
+                    console.log("Marche")
+                    const result = await response.json();
+                    console.log(result.message);
+                } catch (error) {
+                    console.error("Erreur :", error);
+                    alert("Une erreur est survenue.");
+                }
+
+                cityInput.value = ""; // Vider l'input après ajout
+            });
+        </script>
+        <a id="search-button" href="http://localhost:5000/citiesResult">Chercher</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>MétéoTrip | Accueil</title>
+</head>
+<body>
+    <header>
+        MétéoTrip
+    </header>
+    <div class="container">
+        <div class="accueil-display">
+            <div class="description">
+                <p>
+                    MétéoTrip est l'application idéal pour planifier des activités adaptées 
+                    aux conditions météorologiques, que ce soit dans votre région ou à une 
+                    destination de votre choix. </br> </br> Grâce aux travail de nos expert, 
+                    elle analyse en temps réel la météo locale : température, précipitations,
+                    vent et humidité, et ceux pour vous recommander des expériences adaptées
+                    à votre environnement. </br></br>
+					Vous avez la possibilité de découvrir pleins d'activités originales, 
+                    allant de celles en plein air comme la randonnée, une balade à cheval 
+                    ou du kayak, aux activités en intérieur comme les Escape Game, 
+                    le bowling, les ateliers artistiques ou encore les espaces de bien-être. 
+                </p>
+                <a href="http://localhost:5000/citiesForm">Trouver la ville pour votre Week-End</a>
+                <a href="http://localhost:5000/activitiesForm">Trouver une activité à faire aujourd'hui</a>
+            </div>
+            <div class="img">
+                <img id="img-link" src="../static/images/place.png" alt="Images" height="256">
+                
+            </div>
+            <script>
+                const images = ["../static/images/plage.png", "../static/images/place.png", "../static/images/montagne.png"];
+                let index = 0;
+                const delai = 10000; // 10 secondes 
+
+                setInterval(() => {
+                index = (index + 1) % images.length; // boucle à la première image après la dernière
+                document.getElementById("img-link").src = images[index];
+                }, delai);
+            </script>
+        </div>
+    </div>
+</body>
+</html>

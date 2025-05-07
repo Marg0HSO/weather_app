@@ -1,0 +1,9 @@
+dépendance python :
+- flask[async]  // pip install flask[async]
+- json
+- python-weather
+- asyncio
+- nest_asyncio
+
+Fonctionne sur : Edge, Opera GX
+Ne fonctionne pas sur : Firefox

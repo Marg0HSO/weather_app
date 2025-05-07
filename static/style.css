@@ -1,0 +1,195 @@
+/* Réinitialisation des marges et paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    background: url("../static/images/fond_ecran.jpg") no-repeat center center/cover;
+    background-size: cover;
+    color: #333;
+    text-align: center;
+    width: 100%;
+}
+
+/* En-tête */
+header {
+    width: 100%;
+    background: linear-gradient(90deg, #FF9966, #FF5E62);
+    padding: 2%;
+    font-size: 200%;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 2% 5% rgba(0, 0, 0, 0.3);
+}
+
+/* Conteneur principal */
+.container {
+    width: 80%;
+    margin: 5% auto;
+    padding: 3%;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 2%;
+    box-shadow: 0 2% 5% rgba(0, 0, 0, 0.3);
+}
+
+/* Affichage du contenu accueil (texte + images) */
+.accueil-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Description */
+.description {
+    width: 60%;
+    text-align: justify;
+    font-size: 120%;
+    padding: 2%;
+}
+
+/* Liens */
+.description a {
+    display: block;
+    margin: 5% auto;
+    padding: 3%;
+    background: linear-gradient(90deg, #FF9966, #FF5E62);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 2%;
+    width: 60%;
+    text-align: center;
+    box-shadow: 0 2% 5% rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.description a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4% 8% rgba(0, 0, 0, 0.4);
+}
+
+/* Images */
+.img {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+}
+
+.img img {
+    width: 100%;
+    height: auto;
+    border-radius: 2%;
+    box-shadow: 0 2% 5% rgba(0, 0, 0, 0.3);
+}
+
+/* Formulaires */
+input, button {
+    width: 60%;
+    padding: 2%;
+    margin: 2% 0;
+    border: none;
+    border-radius: 2%;
+    font-size: 100%;
+}
+
+/* Style commun pour les boutons */
+button, #search-button, #return-button {
+    background: linear-gradient(90deg, #FF9966, #FF5E62);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2% 5% rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Effet au survol pour les deux */
+button:hover, #search-button:hover, #return-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4% 8% rgba(0, 0, 0, 0.4);
+}
+
+/* Ajustements spécifiques au search-button */
+#search-button {
+    margin: 5% auto;
+    width: 60%;
+    display: block;
+}
+
+/* Liste des villes */
+ul {
+    list-style: none;
+    padding: 0;
+    width: 80%;
+    margin: auto;
+}
+
+ul li {
+    background: rgba(255, 255, 255, 0.3);
+    margin: 2% 0;
+    padding: 2%;
+    border-radius: 2%;
+    font-size: 120%;
+}
+
+/* Résultats */
+h1 {
+    font-size: 200%;
+    margin-bottom: 5%;
+}
+
+ul.activity-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 96%;
+    gap: 2%;
+}
+
+ul.activity-list li {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2%;
+}
+
+.activity-card {
+    justify-content: center;
+    gap: 10%;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 5%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 100%;
+    transition: transform 0.2s;
+}
+
+.activity-card:hover {
+    transform: scale(1.03);
+}
+
+.activity-icon {
+    width: 15%;
+    height: auto;
+    margin-right: 5%;
+}
+
+.activity-card p {
+    font-size: 1.1em;
+    font-weight: bold;
+}
