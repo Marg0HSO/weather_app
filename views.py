@@ -96,8 +96,8 @@ def charger_villes():
     except FileNotFoundError:
         return []
 
-# Sauvegarder les villes dans le fichier JSON
 def sauvegarder_villes(villes):
+    """sauvegarde les ville dans le fichier .json"""
     with open(FICHIER_JSON, "w", encoding="utf-8") as fichier:
         json.dump(villes, fichier, indent=4, ensure_ascii=False)
 

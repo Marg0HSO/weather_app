@@ -92,7 +92,7 @@ setActivitiesDico()
 
 async def createHTMLPage(city):
     acts = await activities(city, activities_dict)
-    html_debut = f"""<!DOCTYPE html>
+    html_debut = """<!DOCTYPE html>
     <html lang="fr">
     <head>
         <meta charset="UTF-8">
@@ -104,10 +104,23 @@ async def createHTMLPage(city):
         MétéoTrip
     </header>
     <div class="container">
-    <h1> On vous propose de faire </h1>
-    <p> Les informations données ici ne prennent en compte que les données métérologique et non pas la location, certaines activités peuvent donc devenir impossible </p>
-    <ul class="activity-list">
+    <h1> On vous propose de faire à : </h1>
     """
+    async with python_weather.Client(unit=python_weather.METRIC) as client:
+        try:
+            weather = await client.get(city)
+            temp = weather.temperature
+            humi = weather.humidity
+            windSpeed = weather.wind_speed
+            prec = weather.precipitation
+        except python_weather.RequestError:
+            return [None]
+
+    html_cityInformation = """
+    <h1>""" + city + """ 🌡️:""" + str(temp) + """°c   💦:""" + str(humi) + """%   💨:""" + str(windSpeed) + """km/h   🌧️:""" + str(prec) + """mm </h1>
+    </br>
+    <p> Les informations données ici ne prennent en compte que les données métérologique et non pas la location, certaines activités peuvent donc devenir impossible </p>
+    <ul class="activity-list">"""
 
     html_cartes = ""
     for nom, type_ in acts:
@@ -164,7 +177,7 @@ async def createHTMLPage(city):
                 </div>
                 </body>
                 </html>"""
-    html_code = html_debut + html_cartes + html_fin
+    html_code = html_debut + html_cityInformation + html_cartes + html_fin
     with open("templates/activities_result.html", "w", encoding="utf-8") as f:
         print(f)
         f.write(html_code)
