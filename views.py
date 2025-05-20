@@ -3,6 +3,7 @@ import json
 from cities_module import getCitiesClassement
 from activities_module import createHTMLPage
 
+# constante avec le nom du fichier JSON
 FICHIER_JSON = "cities.json"
 
 app = Flask(__name__)
@@ -103,6 +104,7 @@ def sauvegarder_villes(villes):
 
 @app.route("/add_city", methods=["POST"])
 def add_city():
+    """mettre la ville dans le fichier json"""
     data = request.get_json()
     ville = data.get("ville")
     print(ville)

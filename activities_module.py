@@ -2,21 +2,21 @@ import csv
 import python_weather
 import asyncio
 from cities_module import setTemperatureScore, setWindSpeedScore, setHumidityScore, setPrecipitationScore
-
-# Lecture du CSV
 import csv
 
 activities_dict = {}
+FICHIER_CSV = "activities.csv"
 
 def setActivitiesDico():
+    """créer le dictionnaire d'activité avec le fichier csv"""
     global activities_dict
-    with open("activities.csv", newline='', encoding='utf-8') as csvfile:
+    with open(FICHIER_CSV, newline='', encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile, delimiter=';')
         for row in reader:
             activity = row["activity"]
             type_    = row["type"]
 
-            # -- température --
+            # température
             temp_str = row["temperature"].strip("[]").strip()
             if not temp_str:
                 temperature = []
@@ -26,7 +26,7 @@ def setActivitiesDico():
             else:
                 temperature = [int(temp_str)]
 
-            # -- vent --
+            # vent
             wind_str = row["wind_speed"].strip("[]").strip()
             if not wind_str:
                 wind_speed = []
@@ -36,7 +36,7 @@ def setActivitiesDico():
             else:
                 wind_speed = [int(wind_str)]
 
-            # -- humidité --
+            # humidité
             hum_str = row["humidite"].strip("[]").strip()
             if not hum_str:
                 humidite = []
@@ -46,7 +46,7 @@ def setActivitiesDico():
             else:
                 humidite = [int(hum_str)]
 
-            # -- précipitations --
+            # precipitations
             prec_str = row["precipitation"].strip("[]").strip()
             if not prec_str:
                 precipitation = []
@@ -56,13 +56,11 @@ def setActivitiesDico():
             else:
                 precipitation = [int(prec_str)]
 
-            # -- dictionnaire final --
+            # dictionnaire
             activities_dict[activity] = [
                 type_, temperature, wind_speed, humidite, precipitation
             ]
 
-
-# Test d'affichage
 # print(activities_dict)
 
 async def oneCityMatrice(city) -> list:
@@ -79,6 +77,7 @@ async def oneCityMatrice(city) -> list:
     return [city, (tempInd, humiInd, windInd, precInd)]
 
 async def activities(city, dico):
+    """renvoie la liste des activités proposée par l'application"""
     listAct = []
     cityMatrice = await oneCityMatrice(city)
     c = 0
@@ -91,6 +90,7 @@ async def activities(city, dico):
 setActivitiesDico()
 
 async def createHTMLPage(city):
+    """créer la page avec les résultats"""
     acts = await activities(city, activities_dict)
     html_debut = """<!DOCTYPE html>
     <html lang="fr">

@@ -7,3 +7,4 @@ dépendance python :
 
 Fonctionne sur : Edge, Opera GX
 Ne fonctionne pas sur : Firefox
+Dans le fichier cities.json ---> vérifier qu'il y a "[]"
