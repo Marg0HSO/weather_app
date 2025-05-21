@@ -1,10 +1,11 @@
 dépendance python :
 - flask[async]  // pip install flask[async]
 - json
-- python-weather
+- python-weather  --> API utilisée
 - asyncio
-- nest_asyncio
+- nest_asyncio // Pas obligatoire 
 
 Fonctionne sur : Edge, Opera GX
-Ne fonctionne pas sur : Firefox
-Dans le fichier cities.json ---> vérifier qu'il y a "[]"
+
+Mise en place : 
+    Dans le fichier cities.json ---> vérifier qu'il y a "[]"

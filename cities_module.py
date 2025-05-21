@@ -1,11 +1,8 @@
 import python_weather
 import asyncio
 import json
-
-spyderIDE = True
-if spyderIDE:
-    import nest_asyncio
-    nest_asyncio.apply()
+import nest_asyncio
+nest_asyncio.apply()
 
 # FONCTION INDICES
 
@@ -64,6 +61,7 @@ def setPrecipitationScore(precipitation: float) -> int:
         o 0mm          --> 5 pts
     """
     try:
+        print(precipitation)
         if precipitation > 30:
             return 1
         elif 10.1 <= precipitation <= 30:
